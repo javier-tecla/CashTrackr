@@ -17,6 +17,18 @@
 
 <body>
 
+    <header class="bg-purple-950 py-5">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:justify-between">
+            <div class="w-full max-w-100">
+                <img src="{{ asset('img/logo.svg') }}" alt="CashTrackr Logo" class="w-full block"/>
+            </div>
+
+            <nav>
+
+            </nav>
+        </div>
+    </header>
+
     @yield('contents')
 
 </body>
