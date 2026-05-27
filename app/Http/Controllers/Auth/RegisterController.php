@@ -18,7 +18,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
         ], [
-            'name.required' => 'El Nombre es obligatorio'
+            'name.required' => 'El Nombre es obligatorio',
+            'email.required' => 'El E-mail es obligatorio',
+            'email.email' => 'E-mail no válido'
             
         ]);
 

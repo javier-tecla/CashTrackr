@@ -24,6 +24,10 @@
                 class="w-full border border-gray-300 p-3 rounded-lg" name="email" />
         </div>
 
+        @error('email')
+            <p class="text-red-600">{{ $message }}</p>
+        @enderror
+
         <div class="space-y-2">
             <label class="font-bold text-2xl block" for="password">Password</label>
 
