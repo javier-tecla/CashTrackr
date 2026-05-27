@@ -12,5 +12,18 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+        ], [
+            'name.required' => 'El Nombre es obligatorio'
+            
+        ]);
+
+
+        dd($data);
+    }
     
 }

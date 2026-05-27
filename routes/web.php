@@ -10,6 +10,8 @@ Route::get('/', function () {
 
 //Rutas para login
 Route::get('/auth/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/auth/register', [RegisterController::class, 'store'])->name('register.store');
+
 
 //Rutas para Registrarse
 Route::get('/auth/login', [LoginController::class, 'index'])->name('login');
