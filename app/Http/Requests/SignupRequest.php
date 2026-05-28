@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class SignupRequest extends FormRequest
 {
@@ -15,7 +16,7 @@ class SignupRequest extends FormRequest
         return true;
     }
 
-    public function messages() : array
+    public function messages(): array
     {
         return [
             'name.required' => 'El Nombre es obligatorio',
@@ -23,7 +24,12 @@ class SignupRequest extends FormRequest
             'email.email' => 'E-mail no válido',
             'password.required' => 'La Contraseña es obligatoria',
             'password.confirmed' => 'Las Contraseñas no coinciden',
-            'password.min' => 'La Contraseña debe tener al menos :min caracteres'
+            'password.min' => 'La Contraseña debe tener al menos :min caracteres',
+            'password.letters' => 'La Contraseña debe tener al menos 1 letra',
+            'password.mixed' => 'La Contraseña debe tener al menos 1 letra mayúscula y una letra minuscula',
+            'password.symbols' => 'La Contraseña debe tener al menos 1 caracter especial (^@_-.*)',
+            'password.numbers' => 'La Contraseña debe tener al menos 1 número',
+            'password..uncompromised' => 'La Contraseña ha aparecido en filtraciones de datos. Elige una mas segura'
         ];
     }
 
@@ -37,7 +43,14 @@ class SignupRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', 'min:8']
+            'password' => ['required', 'confirmed',
+                Password::min(8)
+                    ->letters()
+                    ->mixedCase()
+                    ->symbols()
+                    ->numbers()
+                    ->uncompromised()
+            ]
         ];
     }
 }
