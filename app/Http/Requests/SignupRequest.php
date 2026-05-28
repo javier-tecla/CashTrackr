@@ -20,7 +20,10 @@ class SignupRequest extends FormRequest
         return [
             'name.required' => 'El Nombre es obligatorio',
             'email.required' => 'El E-mail es obligatorio',
-            'email.email' => 'E-mail no válido'
+            'email.email' => 'E-mail no válido',
+            'password.required' => 'La Contraseña es obligatoria',
+            'password.confirmed' => 'Las Contraseñas no coinciden',
+            'password.min' => 'La Contraseña debe tener al menos :min caracteres'
         ];
     }
 
@@ -33,7 +36,8 @@ class SignupRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'email' => ['required', 'email']
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed', 'min:8']
         ];
     }
 }
