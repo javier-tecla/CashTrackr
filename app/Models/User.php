@@ -18,6 +18,11 @@ class User extends Authenticatable implements MustVerifyEmail
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
+    public function sendEmailVerificationNotification()
+    {
+        dd('Desde sendEmailVerificationNotification');
+    }
+
     /**
      * Get the attributes that should be cast.
      *
