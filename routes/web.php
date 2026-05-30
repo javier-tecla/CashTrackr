@@ -15,3 +15,8 @@ Route::post('/auth/register', [RegisterController::class, 'store'])->name('regis
 
 //Rutas para Registrarse
 Route::get('/auth/login', [LoginController::class, 'index'])->name('login');
+
+//Rutas para verificar email
+Route::get('/email/verify/{id}/{hash}', function() {
+
+})->name('verification.verify');
