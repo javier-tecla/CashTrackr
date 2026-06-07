@@ -10,7 +10,7 @@
             <label class="font-bold text-2xl" for="email">Email</label>
 
             <input id="email" type="email" placeholder="Email de Registro"
-                class="w-full border border-gray-300 p-3 rounded-lg" name="email" tabindex="1" />
+                class="w-full border border-gray-300 p-3 rounded-lg" name="email" tabindex="1" value="{{ old('email') }}" >
         </div>
 
          @error('email')

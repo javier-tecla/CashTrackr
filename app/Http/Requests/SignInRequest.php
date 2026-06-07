@@ -16,10 +16,17 @@ class SignInRequest extends FormRequest
     //     return true;
     // }
 
-    public function attributes() : array
+    public function attributes(): array
     {
         return [
             'password' => 'contraseña'
+        ];
+    }
+
+    public function messages():array
+    {
+        return [
+            'email.exists' => 'No encontramos una cuenta con ese correo electrónico.'
         ];
     }
 
@@ -31,7 +38,7 @@ class SignInRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'exists:users,email'],
             'password' => ['required']
         ];
     }
