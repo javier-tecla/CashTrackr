@@ -13,6 +13,10 @@
                 class="w-full border border-gray-300 p-3 rounded-lg" name="email" tabindex="1" />
         </div>
 
+         @error('email')
+            <p class="text-red-600">{{ $message }}</p>
+        @enderror
+
         <div class="flex flex-col gap-2">
             <div class="flex  items-center justify-between">
                 <label class="font-bold text-2xl">Password</label>
@@ -21,6 +25,11 @@
             <input type="password" placeholder="Password de Registro" class="w-full border border-gray-300 p-3 rounded-lg"
                 name="password" tabindex="2" />
         </div>
+
+         @error('password')
+            <p class="text-red-600">{{ $message }}</p>
+        @enderror
+
         <input type="submit" value='Iniciar Sesión'
             class="bg-purple-950 hover:bg-purple-800 w-full p-3 rounded-lg text-white font-bold  text-xl cursor-pointer" />
     </form>

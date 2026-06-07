@@ -16,6 +16,13 @@ class SignInRequest extends FormRequest
     //     return true;
     // }
 
+    public function attributes() : array
+    {
+        return [
+            'password' => 'contraseña'
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +31,8 @@ class SignInRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ];
     }
 }
