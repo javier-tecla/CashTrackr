@@ -9,13 +9,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Rutas para login
+//Rutas para Registrarse
 Route::get('/auth/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/auth/register', [RegisterController::class, 'store'])->name('register.store');
 
 
-//Rutas para Registrarse
+//Rutas para login
 Route::get('/auth/login', [LoginController::class, 'index'])->name('login');
+Route::post('/auth/login', [LoginController::class, 'store'])->name('login.store');
 
 //Rutas para verificar email
 Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {

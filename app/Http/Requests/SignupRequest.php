@@ -8,13 +8,14 @@ use Illuminate\Validation\Rules\Password;
 
 class SignupRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
+    // Esto podria eliminarse y por defecto quesaria en true
+    // /**
+    //  * Determine if the user is authorized to make this request.
+    //  */
+    // public function authorize(): bool
+    // {
+    //     return true;
+    // }
 
     public function messages(): array
     {
