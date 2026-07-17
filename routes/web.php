@@ -41,3 +41,4 @@ Route::post('/email/verification-notification', function(Request $request) {
 })->middleware(['auth', 'throttle:1,1'])->name('verification.send');
 
 Route::get('/dashboard', [BudgetController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/budgets/create', [BudgetController::class, 'create'])->middleware(['auth', 'verified'])->name('budgets.create');
