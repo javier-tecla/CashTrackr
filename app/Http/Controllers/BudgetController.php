@@ -6,6 +6,7 @@ use App\Http\Requests\BudgetRequest;
 use App\Models\Budget;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Attributes\Controllers\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -36,7 +37,16 @@ class BudgetController extends Controller
     {
         $data = $request->validated();
 
-        dd($data);
+        $user_id = Auth::id();
+
+        $budget = Budget::create([
+            'name' => $data['name'],
+            'amount' => $data['amount'],
+            'type' => $data['type'],
+            'user_id' => $user_id
+        ]);
+
+        return redirect()->route('dashboard');
     }
 
     /**
