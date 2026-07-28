@@ -40,8 +40,9 @@
                             <tr class="flex items-center justify-between">
                                 <td class="pt-10 pb-5 px-10 relative">
                                     <p
-                                        class=" absolute top-0 left-0 inline-block px-3 py-1 rounded-br-2xl text-sm font-medium w-40
-                                  ">{{ $budget->type }}
+                                        class=" absolute top-0 left-0 inline-block px-3 py-1 rounded-br-2xl text-sm font-medium w-40 text-white
+                                        {{ $budget->isGeneral() ? 'bg-purple-950 ' : 'bg-amber-500 ' }}
+                                  ">{{ $budget->isGeneral() ? 'General' : 'Proyecto' }}
                                     </p>
                                     <a class="text-2xl font-bold text-gray-500 block" href="">{{ $budget->name }}</a>
                                     <p class="text-lg text-gray-500">${{ $budget->amount }}</p>
