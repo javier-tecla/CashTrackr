@@ -36,19 +36,21 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300 ">
+                            @foreach ($budgets as $budget)
                             <tr class="flex items-center justify-between">
                                 <td class="pt-10 pb-5 px-10 relative">
                                     <p
                                         class=" absolute top-0 left-0 inline-block px-3 py-1 rounded-br-2xl text-sm font-medium w-40
-                                  ">
+                                  ">{{ $budget->type }}
                                     </p>
-                                    <a class="text-2xl font-bold text-gray-500 block" href=""></a>
-                                    <p class="text-lg text-gray-500"></p>
+                                    <a class="text-2xl font-bold text-gray-500 block" href="">{{ $budget->name }}</a>
+                                    <p class="text-lg text-gray-500">${{ $budget->amount }}</p>
                                 </td>
                                 <td class="py-6 px-10 flex justify-end gap-3">
 
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
